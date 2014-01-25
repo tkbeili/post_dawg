@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.text :body
       t.references :category, index: true
       t.string :address
-      t.string :image
+      t.attachment :image
       t.string :longitude
       t.string :latitude
 

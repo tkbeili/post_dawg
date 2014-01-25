@@ -1,4 +1,14 @@
 <h1> Welcome to Post Dawg</h1>
 
-
 <%= link_to "New Dawg Post", new_post_path, class: "btn btn-primary" %>
+
+<br>
+
+
+<% @posts.each do |post| %>
+  <div class="row">
+    <div class="col-md-12">  
+      <%= link_to post.title, post %>
+    </div>
+  </div>
+<% end %>
