@@ -6,6 +6,8 @@ gem 'rails', '4.0.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 
+gem "devise", "~> 3.2.2"
+
 gem "geocoder"
 gem 'gmaps4rails', "~> 2.1.1"
 
