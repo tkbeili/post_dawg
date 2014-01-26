@@ -7,8 +7,8 @@ class CreatePosts < ActiveRecord::Migration
       t.references :category, index: true
       t.string :address
       t.attachment :image
-      t.string :longitude
-      t.string :latitude
+      t.float :longitude
+      t.float :latitude
 
       t.timestamps
     end

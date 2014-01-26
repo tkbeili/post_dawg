@@ -9,5 +9,15 @@ class Post < ActiveRecord::Base
 
   validates_attachment_size :image, less_than: 10.megabytes
 
+  geocoded_by :full_street_address  
+  after_validation :geocode  
+  
+  def has_address?
+    longitude.present? && latitude.present?
+  end
+  
+  def full_street_address
+    address
+  end
 
 end
