@@ -1,16 +1,17 @@
 <div class="row">
-  <div class="col-xs-4">
-    <h1>Post: <%= @post.title %></h1>
+  <div class="col-xs-6">
+    <h1><%= @post.title %></h1>
     <p><%= @post.body %></p>
+    <p><%= link_to @post.link.truncate(50), @post.link, target: "_blank" %></p>
     <%= image_tag @post.image(:medium) %>
-
+    <br>
     <%= link_to "Edit", edit_post_path(@post), class: "btn btn-info" %>
     <%= link_to "Delete", @post, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure you want to delete this post?"} %>
   </div>
-  <div class="col-xs-8">
+  <div class="col-xs-6">
     <% if @post.has_address? %>
-      <div style='width: 800px;'>
-        <div id="map" style='width: 800px; height: 400px;'></div>
+      <div style=''>
+        <div id="map" style=' height: 400px;'></div>
       </div>
     <% end %>
   </div>
@@ -25,16 +26,13 @@
           {
             "lat": <%= @post.latitude %>,
             "lng": <%= @post.longitude %>,
-            "picture": {
-              "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-              "width":  36,
-              "height": 36
-            },
+            "zoom": 0,
             "infowindow": "hello!"
           }
         ]);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
+        handler.getMap().setZoom(15);
       });
     })
   </script>
